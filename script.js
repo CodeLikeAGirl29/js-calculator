@@ -15,7 +15,6 @@ function inputDigit(digit) {
 		calculator.displayValue =
 			displayValue === '0' ? digit : displayValue + digit;
 	}
-	console.log(calculator);
 }
 
 function inputDecimal(dot) {
@@ -24,26 +23,22 @@ function inputDecimal(dot) {
 		calculator.waitingForSecondOperand = false;
 		return;
 	}
+
 	if (!calculator.displayValue.includes(dot)) {
-		// append the decimal
 		calculator.displayValue += dot;
 	}
 }
 
 function handleOperator(nextOperator) {
-	// destructure the properties on calculator object
 	const { firstOperand, displayValue, operator } = calculator;
-	// 'parseFloat' to convert the string contents of 'displayValue' to a floating-point number
 	const inputValue = parseFloat(displayValue);
 
 	if (operator && calculator.waitingForSecondOperand) {
 		calculator.operator = nextOperator;
-		console.log(calculator);
 		return;
 	}
 
-	if (firstOperand === null && !isNaN(inputValue)) {
-		// Update the firstOperand property
+	if (firstOperand == null && !isNaN(inputValue)) {
 		calculator.firstOperand = inputValue;
 	} else if (operator) {
 		const result = calculate(firstOperand, inputValue, operator);
@@ -54,7 +49,6 @@ function handleOperator(nextOperator) {
 
 	calculator.waitingForSecondOperand = true;
 	calculator.operator = nextOperator;
-	console.log(calculator);
 }
 
 function calculate(firstOperand, secondOperand, operator) {
@@ -76,13 +70,10 @@ function resetCalculator() {
 	calculator.firstOperand = null;
 	calculator.waitingForSecondOperand = false;
 	calculator.operator = null;
-	console.log(calculator);
 }
 
 function updateDisplay() {
-	// select the element class
 	const display = document.querySelector('.calculator-screen');
-	// update the value of the element
 	display.value = calculator.displayValue;
 }
 
@@ -111,7 +102,6 @@ keys.addEventListener('click', (event) => {
 			resetCalculator();
 			break;
 		default:
-			// check if the key is an integer
 			if (Number.isInteger(parseFloat(value))) {
 				inputDigit(value);
 			}

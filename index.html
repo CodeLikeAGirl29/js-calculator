@@ -4,11 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
-      rel="stylesheet"
-    />
-
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -21,15 +17,15 @@
   </div>
   <main>
     <div class="calculator">
-
+  
       <input type="text" class="calculator-screen" value="0" disabled />
       
       <div class="calculator-keys">
         
-        <button type="button" class="operator" value="+">+</button>
-        <button type="button" class="operator" value="-">-</button>
-        <button type="button" class="operator" value="*">&times;</button>
-        <button type="button" class="operator" value="/">&divide;</button>
+        <button type="button" class="operator" value="+" data-action="add">+</button>
+        <button type="button" class="operator" value="-" data-action="subtract">-</button>
+        <button type="button" class="operator" value="*" data-action="multiply">&times;</button>
+        <button type="button" class="operator" value="/" data-action="divide">&divide;</button>
     
         <button type="button" value="7">7</button>
         <button type="button" value="8">8</button>
@@ -47,10 +43,10 @@
     
     
         <button type="button" value="0">0</button>
-        <button type="button" class="decimal function" value=".">.</button>
-        <button type="button" class="all-clear function" value="all-clear">AC</button>
+        <button type="button" class="decimal function" value="." data-action="decimal">.</button>
+        <button type="button" class="all-clear function" value="all-clear" data-action="clear">AC</button>
     
-        <button type="button" class="equal-sign operator" value="=">=</button>
+        <button type="button" class="equal-sign operator" value="=" data-action="calculate">=</button>
     
       </div>
     </div>
